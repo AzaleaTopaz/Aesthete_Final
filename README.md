@@ -2,8 +2,6 @@
 
 ## A platform for artists to connect.
 
-Azalea Nikitin 
-
 ## Description
 
 Here is a social media platform where all artists of differenct expression come together to collaborate on projects and achieve great outcomes to share with the world.
@@ -24,8 +22,11 @@ leave reviews for one another after working on a project together.
 ## Component Hierarchy
 ![component Hierarchy](Assets/Asthete.drawio.png)
 ## Wireframes
-![Wireframe](Assets/Athete_main_page.png)
-
+Main
+![main](Assets/Athete_main_page.png)
+Login
+![Login](Assets/Asthete_Login.png)
+![profile](Assets/Asthete_profile.png)
 ## Technologies
 * HTML/CSS
 * JavaScript
@@ -34,3 +35,13 @@ leave reviews for one another after working on a project together.
 * Python
 * Node JS
 * Cors
+
+
+
+#### GitHub https://github.com/AzaleaTopaz
+
+#### Linkedin
+https://www.linkedin.com/in/azalea-nikitin-047831273/
+
+#### Trello
+https://trello.com/b/psJIqJQh/asthete-final
