@@ -1,7 +1,12 @@
 from django.urls import path
 from .views import ListUsers, UserDetail, ListProjects, ProjectDetail, ListReviews, ReviewDetail
+from . import views
+
 
 urlpatterns = [
+    path('api/public', views.public),
+    path('api/private', views.private),
+    path('api/private-scoped', views.private_scoped),
     path('users/', ListUsers.as_view(), name='user-list'),
     path('users/<int:pk>/', UserDetail.as_view(), name='user-detail'),
     path('projects/', ListProjects.as_view(), name='project-list'),
