@@ -45,3 +45,15 @@ class Review(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class MediaFile(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='media_files')
+    file = models.FileField(upload_to='media/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = 'media_files'
+
+    def __str__(self):
+        return f'{self.file.name} uploaded at {self.uploaded_at}'

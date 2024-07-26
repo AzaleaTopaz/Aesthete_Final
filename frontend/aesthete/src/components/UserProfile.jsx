@@ -46,12 +46,13 @@ export default function UserProfile() {
     }, [username]);
      
     const userProject = projects.find(project => project.id === user?.id);
+    const userReview = reviews.find(review => review.id === user?.id);
     return (
         <div className = 'userprofile'>
-        <Header />
-        <h2>Welcome {username}!</h2>
-        {user && (
-            <div>
+                <Header />
+                <h2>Welcome {username}!</h2>
+                {user && (
+                <div>
                 {user.image_url ? (
                     <img className ='profilepic'src={user.image_url} alt={user.name} />
                    
@@ -62,7 +63,7 @@ export default function UserProfile() {
             </div>
         )}
           <div className='project-container'>
-                <h1>Upcoming Project</h1>
+                <h2>Upcoming Projects</h2>
                 {userProject ? (
                     <ul>
                         <li key={userProject.id}>{userProject.name}</li> 
@@ -73,6 +74,21 @@ export default function UserProfile() {
                     <p>No projects available</p>
                 )}
             </div>
+        <div className='reviews-container'>
+            <h2>Reviews</h2>
+            {userReview ? (
+                    <ul>
+                        <li key={userReview.id}>{userReview.name}</li> 
+                        <li>{userReview.review_text}</li>
+                        <li>{userReview.date}</li>
+
+                    </ul>
+                ) : (
+                    <p>No projects available</p>
+                )}
+           
+        </div>
+
     </div>
 );
 }
