@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Birthstone+Bounce:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.loginpage{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color:#F9F7F3;
+    width: 100vh;
+    height: 100vh;
+    
+}
+
+.login-title{
+font-family: 'Birthstone Bounce';
+font-size: 60px;
+color:#0FA3B1;
+}
+.login-subtitle{
+margin-bottom: 40px;
+margin-top: -30px;
+text-align: center;
+font-family: 'Open Sans';
+}
+
+.loginContainer{
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+margin-top: -40px;
+background-color:#EDDEA4;
+width: 50vh;
+padding-bottom:30px;
+
+}

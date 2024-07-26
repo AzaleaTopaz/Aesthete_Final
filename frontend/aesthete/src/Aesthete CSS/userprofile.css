@@ -1,0 +1,12 @@
+.userprofile{
+    background-color:#F9F7F3;
+    width: 180vh;
+    height: 120vh;
+}
+
+.profilepic {
+    height: 222px;
+    width: 222px;
+    border-radius: 30px;
+    object-fit: cover;
+}

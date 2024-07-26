@@ -12,6 +12,15 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+class UserDetailByUsername(generics.RetrieveAPIView):
+    serializer_class = UserSerializer
+
+    def get_object(self):
+        username = self.kwargs.get('username')
+        try:
+            return User.objects.get(username=username)
+        except User.DoesNotExist:
+            raise NotFound(detail="User not found.")
 
 #Project Views
 class ListProjects(generics.ListCreateAPIView):
@@ -30,3 +39,4 @@ class ListReviews(generics.ListCreateAPIView):
 class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
+

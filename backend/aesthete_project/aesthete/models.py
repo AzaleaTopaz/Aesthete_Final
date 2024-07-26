@@ -3,12 +3,15 @@ from django.db import models
 # Create your models here.
 
 class User(models.Model):
+    username = models.CharField(max_length=60, unique=True)
+    email = models.EmailField(max_length=200)
+    password = models.CharField(max_length=128)
     name = models.CharField(max_length=200)
-    email = models.CharField(max_length=200)
     phone = models.CharField(max_length=200)
     location = models.CharField(max_length=500)
     image_url = models.URLField(max_length=700, null=True)
     portfolio = models.URLField(max_length=700, null=True)
+
 
     class Meta: 
         db_table = 'users'

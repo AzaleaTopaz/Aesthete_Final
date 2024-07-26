@@ -6,10 +6,10 @@ TRUNCATE TABLE reviews, projects, users CASCADE;
 
 
 -- Insert data into users table without specifying primary keys
-INSERT INTO users (name, email, phone, location, image_url, portfolio)
-VALUES ('John Dempsey', 'john.doe@example.com', '123-456-7890', 'New York, NY', 'https://example.com/profile.jpg', 'https://example.com/portfolio'),
-       ('Kayla Smith', 'jane.smith@example.com', '987-654-3210', 'Los Angeles, CA', 'https://example.com/jane.jpg', 'https://example.com/jane-portfolio'),
-       ('Lily Rose', 'lily.rose@example.com', '345-678-9876', 'Chicago, IL', 'https://example.com/lily.jpg', 'https://example.com/lily-portfolio');
+INSERT INTO users (username, email, password, name,  phone, location, image_url, portfolio)
+VALUES ('JDemp23','john.dempsey@example.com', 'Demp123456!','John Dempsey', '123-456-7890', 'New York, NY', 'https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?t=st=1721948868~exp=1721952468~hmac=439c95e1937e5942ce3913d9751eaa98a425eb83c9a90de6bd792e81f5dbe04a&w=1800', 'https://example.com/portfolio'),
+       ('Smithkay12','kayla.smith@example.com', 'Smith23456!','Kayla Smith', '987-654-3210', 'Los Angeles, CA', 'https://example.com/jane.jpg', 'https://example.com/jane-portfolio'),
+       ('RoseLil45','lily.rose@example.com', 'osor345345!', 'Lily Rose', '345-678-9876', 'Chicago, IL', 'https://example.com/lily.jpg', 'https://example.com/lily-portfolio');
 
 -- Insert data into projects table, referencing users by name
 INSERT INTO projects (user_id, name, start_date, end_date, inspiration, description)
