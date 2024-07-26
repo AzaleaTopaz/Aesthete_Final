@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Project, Review
+from .models import User, Project, Review, MediaFile
 
 
 class ReviewSerializer(serializers.ModelSerializer):
@@ -17,3 +17,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = '__all__'
 
+class MediaFileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MediaFile
+        fields = ['id', 'file', 'uploaded_at']
