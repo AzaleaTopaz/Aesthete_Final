@@ -3,6 +3,7 @@ import Home from './Home'
 import UserProfile from './UserProfile'
 import LoginPage from './LoginPage'
 import Projects from './Projects'
+import ProjectForm from './ProjectForm'
 
 
 export default function Main() {
@@ -13,6 +14,7 @@ export default function Main() {
                 <Route path='/login' element={<LoginPage />} />
                 <Route path="/username/:username" element={<UserProfile />} />
                 <Route path='/projects' element ={<Projects />} />
+                <Route path='/projects/edit/:id' element={<ProjectForm />} />
 
             </Routes>
         </div>

@@ -29,7 +29,7 @@ useEffect(() => {
     return (
         <div className = 'Projects'>
             {projects.map(project => (
-               <div key = {project.id} className='project'>
+               <div key = {project.id} className='project-info'>
                 <h2>{project.name}</h2>
                 <p><strong>Start Date:</strong> {project.start_date}</p>
                 <p><strong>End Date:</strong> {project.end_date}</p>

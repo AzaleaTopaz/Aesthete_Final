@@ -123,10 +123,14 @@ export default function UserProfile() {
             <div className='project-container'>
                 <h2>Upcoming Projects</h2>
                 {userProject ? (
-                    <ul>
-                        <li key={userProject.id}>{userProject.name}</li> 
-                        <li><img className = 'inspo' src={userProject.inspiration} alt ='lightbulb'></img></li>
-                    </ul>
+                    <div key={userProject.id} className='project-info'>
+                        <h2>{userProject.name}</h2> 
+                        <img className = 'inspo' src={userProject.inspiration} alt ='lightbulb'></img>
+                        <Link to={`/projects/edit/${userProject.id}`}>
+                        <button>Edit Project</button>
+                    </Link>
+
+                    </div>
                 ) : (
                     <p>No projects available</p>
                 )}
