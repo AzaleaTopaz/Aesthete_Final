@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Project, Review, MediaFile
+from .models import User, Project, Review, MediaFile, Portfolio
 
 
 class ReviewSerializer(serializers.ModelSerializer):
@@ -20,4 +20,16 @@ class UserSerializer(serializers.ModelSerializer):
 class MediaFileSerializer(serializers.ModelSerializer):
     class Meta:
         model = MediaFile
-        fields = ['id', 'file', 'uploaded_at']
+        fields = '__all__'
+
+        def to_representation(self, instance):
+            representation = super().to_representation(instance)
+        # Ensure user field can be null or handle accordingly
+            if instance.user is None:
+                representation['user'] = None
+                return representation
+            
+class PortfolioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Portfolio
+        fields = '__all__'

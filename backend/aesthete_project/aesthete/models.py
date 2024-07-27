@@ -48,7 +48,7 @@ class Review(models.Model):
     
 
 class MediaFile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='media_files')
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='media_files', null=True, blank=True)
     file = models.FileField(upload_to='media/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
@@ -57,3 +57,17 @@ class MediaFile(models.Model):
 
     def __str__(self):
         return f'{self.file.name} uploaded at {self.uploaded_at}'
+    
+class Portfolio(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='portfolios')
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    url = models.URLField(max_length=600)
+    photo = models.URLField(max_length=600)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = 'portfolios'
+
+    def __str__(self):
+        return self.title

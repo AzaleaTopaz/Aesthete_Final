@@ -1,4 +1,6 @@
 .userprofile{
+    display: flex;
+    flex-direction: column;
     background-color:#F9F7F3;
     width: 180vh;
     height: 120vh;
@@ -9,4 +11,10 @@
     width: 222px;
     border-radius: 30px;
     object-fit: cover;
+}
+.inspo {
+    height: 222px;
+    width: 222px;
+    border-radius: 30px;
+    object-fit: cover;  
 }
