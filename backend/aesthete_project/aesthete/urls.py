@@ -1,7 +1,7 @@
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import ListUsers, UserDetail, UserDetailByUsername, ListProjects, ProjectDetail, ListReviews, ReviewDetail, ListCreateMediaFiles, MediaFileDetail,PortfolioListCreate, PortfolioDetail
+from .views import ListUsers, UserDetail, UserDetailByUsername, ListProjects, ProjectDetail, ListReviews, ReviewDetail, ListCreateMediaFiles, MediaFileDetail,PortfolioListCreate, PortfolioDetail, CreateProjectView, GetUserIdByUsername
 
 urlpatterns = [
     path('media/', ListCreateMediaFiles.as_view(), name='list_create_media_files'),
@@ -11,9 +11,12 @@ urlpatterns = [
     path('users/', ListUsers.as_view(), name='user-list'),
     path('users/<int:pk>/', UserDetail.as_view(), name='user-detail'),
     path('users/username/<str:username>/', UserDetailByUsername.as_view(), name='user-detail-by-username'),
+     path('user-id/<str:username>/', GetUserIdByUsername.as_view(), name='get_user_id_by_username'),
+
    
     path('projects/', ListProjects.as_view(), name='project-list'),
     path('projects/<int:pk>/', ProjectDetail.as_view(), name='project-detail'),
+    path('projects/<str:username>', CreateProjectView.as_view(), name='create_project'),
 
     path('portfolios/', PortfolioListCreate.as_view(), name='portfolio-list-create'),
     path('portfolios/<int:pk>/', PortfolioDetail.as_view(), name='portfolio-detail'),

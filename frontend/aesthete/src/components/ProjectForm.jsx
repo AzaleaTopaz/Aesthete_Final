@@ -41,9 +41,18 @@ export default function ProjectForm() {
         e.preventDefault();
         try {
             await axios.put(`http://localhost:8000/projects/${id}/`, formData);
-            navigate(`/username/${username}`); // Redirect back to projects list after update
+            navigate(`/username/${username}`); 
         } catch (error) {
             console.error('Error updating project:', error);
+        }
+    };
+
+    const handleDelete = async () => {
+        try {
+            await axios.delete(`http://localhost:8000/projects/${id}`);
+            navigate(`/username/${formData.user}`); 
+        } catch (error) {
+            console.error('Error deleting project:', error);
         }
     };
 
@@ -101,7 +110,10 @@ export default function ProjectForm() {
                     />
                 </label>
                 <button type='submit'>Update Project</button>
-                <button type='button' onClick={() => navigate('/projects')}>Cancel</button>
+                <button type='button' onClick={() => navigate(`/username/${username}`)}>Cancel</button>
+                <button type='button' onClick={handleDelete} style={{ backgroundColor: 'red', color: 'white' }}>
+                Delete Project
+                </button>
             </form>
         </div>
     );

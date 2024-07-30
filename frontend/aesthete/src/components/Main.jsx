@@ -4,6 +4,7 @@ import UserProfile from './UserProfile'
 import LoginPage from './LoginPage'
 import Projects from './Projects'
 import ProjectForm from './ProjectForm'
+import CreateProjectForm from './CreateProjectForm';
 
 
 export default function Main() {
@@ -15,6 +16,7 @@ export default function Main() {
                 <Route path="/username/:username" element={<UserProfile />} />
                 <Route path='/projects' element ={<Projects />} />
                 <Route path='/projects/edit/:id' element={<ProjectForm />} />
+                <Route path='/create-project/:username' element={<CreateProjectForm />} />
 
             </Routes>
         </div>

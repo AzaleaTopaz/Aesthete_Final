@@ -4,6 +4,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import '../Aesthete CSS/userprofile.css';
+import CreateProjectForm from './CreateProjectForm';
 
 
 export default function UserProfile() {
@@ -129,6 +130,11 @@ export default function UserProfile() {
                         <Link to={`/projects/edit/${userProject.id}`}>
                         <button>Edit Project</button>
                     </Link>
+                    <div className='create-project-container'>
+                    {/* Pass the username to CreateProjectForm */}
+                    <Link to={`/create-project/${username}`}>
+                    <button>Create new Project</button></Link>
+                </div>
 
                     </div>
                 ) : (
