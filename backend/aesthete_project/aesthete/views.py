@@ -8,7 +8,6 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from django.views import View
 from django.shortcuts import get_object_or_404
-
 # from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import NotFound
 from .models import User, Project, Review, MediaFile, Portfolio
@@ -107,38 +106,25 @@ class ProjectDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
     # permission_classes = [IsAuthenticated]
+    
+    
 
 class CreateProjectView(generics.CreateAPIView):
-    serializer_class = ProjectSerializer
+    # serializer_class = ProjectSerializer
+    # queryset = Project.objects.all()
+    # permission_classes = [AllowAny]
+
+    # def perform_create(self, serializer):
+    #     user = self.kwargs['pk']
+    #     user = get_object_or_404(User, user=user)
+    #     serializer.save(user=user)
+
+    # def get_serializer_context(self):
+    #     context = super().get_serializer_context()
+    #     context['user'] = self.kwargs['pk']
+    #     return context 
     queryset = Project.objects.all()
-    permission_classes = [AllowAny]
-
-    def perform_create(self, serializer):
-        username = self.kwargs['username']
-        user = get_object_or_404(User, username=username)
-        serializer.save(user=user)
-
-    def get_serializer_context(self):
-        context = super().get_serializer_context()
-        context['username'] = self.kwargs['username']
-        return context    
-
-    # def get_queryset(self):
-    #     username = self.kwargs['username']
-    #     return Project.objects.filter(user__username__iexact=username)
-
-
-    # def get(self, request, *args, **kwargs):
-    #     username = self.kwargs['username']
-    #     # project = self.kwargs['project']
-    #     user = get_object_or_404(User, username=username)
-    #     project = Project.objects.filter(user=user).first()
-    #     if project:
-    #         serializer = ProjectSerializer(project)
-    #         return Response(serializer.data, status=status.HTTP_200_OK)
-    #     return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
-
-
+    serializer_class = ProjectSerializer
 # Review Views
 class ListReviews(generics.ListCreateAPIView):
     queryset = Review.objects.all()

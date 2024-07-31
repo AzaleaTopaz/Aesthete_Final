@@ -1,9 +1,9 @@
-
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Birthstone+Bounce:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-
-.userprofile {
+/* General Styling */
+.Projects {
   padding: 2rem 0;
 }
 
@@ -14,31 +14,26 @@
 
 .subtitle {
   font-family: 'Open Sans', sans-serif;
+  margin-bottom: 0.5rem;
 }
 
 .box {
+  border-radius: 8px;
   background-color: #EDDEA4;
-  padding: 2rem;
-  border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
-.image.is-rounded {
-  border-radius: 50%;
+.box:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.inspo {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
+.image {
+  margin-top: 1rem;
 }
 
-.is-link {
-  color: #0FA3B1;
-  border-color: #0FA3B1;
-}
-
-.is-primary {
+.button.is-link {
   background-color: #0FA3B1;
-  border-color: transparent;
+  border-color: #0FA3B1;
+  color: #fff;
 }

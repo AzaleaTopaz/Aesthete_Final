@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import '../Aesthete CSS/login.css'
+import 'bulma/css/bulma.min.css';
 
 export default function LoginPage () {
     const initialState = {
@@ -33,7 +34,7 @@ export default function LoginPage () {
       if (loggedInUser) {
           const goToUserProfile = async () => {
               try {
-                  console.log('Fetching user profile for:', loggedInUser); // Debugging
+                  console.log('Fetching user profile for:', loggedInUser);
                   const userResponse = await axios.get(`http://localhost:8000/users/${loggedInUser}`);
                   navigate(`/username/${userResponse.data.username}`);
               } catch (error) {
@@ -89,40 +90,60 @@ export default function LoginPage () {
     }
     return (
       <div className="loginpage">
-        <div className='login-titles'>
-          <h1 className = 'login-title'>Aesthete</h1>
-          <p className='login-subtitle'>Where Artists Connect</p>
-          </div>
-      
+        <div className="has-text-centered">
+          <h1 className="title is-1">Aesthete</h1>
+          <p className="subtitle is-4">Where Artists Connect</p>
+        </div>
   
-        <form className="loginContainer" onSubmit={handleSubmit}>
-          <h3>Log in</h3>
-          {/* UserName */}
-          <div className="emailContainer">
-          <input type="text" id="username" placeholder="User Name" onChange={handleChange} value={formState.username} />
+        <form className="box" onSubmit={handleSubmit}>
+          <h3 className="title is-4">Log in</h3>
+  
+          <div className="field">
+            <label className="label" htmlFor="username">Username</label>
+            <div className="control">
+              <input
+                type="text"
+                id="username"
+                className="input"
+                placeholder="User Name"
+                onChange={handleChange}
+                value={formState.username}
+              />
+            </div>
           </div>
   
-          {/* Password */}
-          <div className="passwordContainer">
-            <input type="password" id="password" placeholder="Enter your password" onChange={handleChange} value={formState.password} />
+          <div className="field">
+            <label className="label" htmlFor="password">Password</label>
+            <div className="control">
+              <input
+                type="password"
+                id="password"
+                className="input"
+                placeholder="Enter your password"
+                onChange={handleChange}
+                value={formState.password}
+              />
+            </div>
           </div>
   
-          {/* Error Message */}
-          {formState.error && <p style={{ color: 'red' }}>{formState.error}</p>}
+          {formState.error && <p className="has-text-danger">{formState.error}</p>}
   
-          {/* Submit Button */}
-          <div className="submitBtnContainer">
-            <button className="submitBtn" type="submit">Log in</button>
+          <div className="field is-grouped is-grouped-centered mt-4">
+            <div className="control">
+              <button className="button is-primary" type="submit">Log in</button>
+            </div>
           </div>
-          
-          {/* Link to Sign up Page */}
-          <div className="signupBtnContainer">
-            <hr/> 
-            <h4>Need an account</h4>
-            <Link className="signupBtn" to='/signup'><button>Sign up</button></Link>
-            {/* <Link to='/UserProfile'>User Profile</Link> */}
+  
+          <div className="field is-grouped is-grouped-centered mt-4">
+            <hr className="my-4"/>
+            <p className="control">
+              
+            </p>
+            <div className="control">
+              <Link to="/signup" className="button is-link">Sign up</Link>
+            </div>
           </div>
         </form>
       </div>
-    )
-    }
+    );
+  }

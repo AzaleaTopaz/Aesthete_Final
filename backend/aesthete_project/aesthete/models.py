@@ -22,8 +22,8 @@ class User(models.Model):
 class Project(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='projects')
     name = models.CharField(max_length=400, default='no name')
-    start_date = models.DateField(blank=True, null=True)
-    end_date = models.DateField(blank=True, null=True)
+    start_date = models.CharField(max_length=200, default='no date')
+    end_date = models.CharField(max_length=200, default='no date')
     inspiration = models.URLField(max_length=700, null=True)
     description = models.TextField(max_length=800, default='no description')
 

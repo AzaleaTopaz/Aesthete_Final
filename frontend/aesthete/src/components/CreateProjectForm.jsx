@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function CreateProjectForm() {
+export default function CreateProjectForm({user}) {
     const { username } = useParams();
-    // const [username, setUsername] = useState('');
     const [projects, setProjects] = useState([]);
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [name, setName] = useState('');
     const [startDate, setStartDate] = useState('');
@@ -17,18 +17,18 @@ export default function CreateProjectForm() {
 
     const initialProjectFormState = {
         name: '',
-        start_date: '',
-        end_date: '',
+        start_date: null,
+        end_date: null,
         inspiration: '',
         description: '',
-        username
+        user: null
 
     }
 
     useEffect(() => {
         const renderData = async () => {
         try {
-            const projectsResponse = await axios.get(`http://localhost:8000/projects/${username}`)
+            const projectsResponse = await axios.get(`http://localhost:8000/projects/${user.id}`)
             setProjects(projectsResponse.data);
             console.log(projectsResponse.data);
         } catch (error) {
@@ -54,9 +54,16 @@ export default function CreateProjectForm() {
                     end_date: endDate,
                     inspiration,
                     description,
+                    user:user.id
                 };
-                await axios.post(`http://localhost:8000/projects/${username}`, newProject)
+            console.log(newProject)
+
+              const res =  await axios.post(`http://localhost:8000/projects/create/${user.id}/`, newProject)
+            
                 submissionSuccessful = true
+                console.log('Project succesfully created!', res)
+
+                navigate(`/username/${username}`);
             }
         } catch(error){
             console.error('Error creating project:', error)

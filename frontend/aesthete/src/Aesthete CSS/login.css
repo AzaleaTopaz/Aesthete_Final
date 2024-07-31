@@ -1,37 +1,38 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Birthstone+Bounce:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-.loginpage{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    background-color:#F9F7F3;
-    width: 100vh;
-    height: 100vh;
-    
+
+.loginpage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F9F7F3;
+  height: 100vh;
+  width: 100vw;
 }
 
-.login-title{
-font-family: 'Birthstone Bounce';
-font-size: 60px;
-color:#0FA3B1;
-}
-.login-subtitle{
-margin-bottom: 40px;
-margin-top: -30px;
-text-align: center;
-font-family: 'Open Sans';
+.title {
+  font-family: 'Birthstone Bounce', cursive;
+  color: #0FA3B1;
 }
 
-.loginContainer{
-display: flex;
-justify-content: center;
-flex-direction: column;
-align-items: center;
-margin-top: -40px;
-background-color:#EDDEA4;
-width: 50vh;
-padding-bottom:30px;
+.subtitle {
+  font-family: 'Open Sans', sans-serif;
+}
 
+.box {
+  background-color: #EDDEA4;
+  padding: 2rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.has-text-danger {
+  color: #FF3860; 
+}
+
+.is-grouped-centered {
+  display: flex;
+  justify-content: center;
 }

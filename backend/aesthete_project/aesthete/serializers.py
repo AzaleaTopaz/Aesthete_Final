@@ -8,13 +8,13 @@ class ReviewSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ProjectSerializer(serializers.ModelSerializer):
-    username = serializers.CharField(source='user.username', read_only=True)
     class Meta:
         model = Project
-        fields = ['username', 'name', 'start_date', 'end_date', 'inspiration', 'description']
+        fields = '__all__'
         extra_kwargs = {
             'user': {'required': False}
         }
+        
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

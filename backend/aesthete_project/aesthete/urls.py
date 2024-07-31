@@ -15,8 +15,8 @@ urlpatterns = [
 
    
     path('projects/', ListProjects.as_view(), name='project-list'),
+    path('projects/create/<int:pk>/', CreateProjectView.as_view(), name='create_project'),
     path('projects/<int:pk>/', ProjectDetail.as_view(), name='project-detail'),
-    path('projects/<str:username>', CreateProjectView.as_view(), name='create_project'),
 
     path('portfolios/', PortfolioListCreate.as_view(), name='portfolio-list-create'),
     path('portfolios/<int:pk>/', PortfolioDetail.as_view(), name='portfolio-detail'),
