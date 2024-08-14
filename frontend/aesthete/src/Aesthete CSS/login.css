@@ -10,18 +10,27 @@
   background-color: #F9F7F3;
   height: 100vh;
   width: 100vw;
+  gap: 16px;
 }
-
+h3.title.is-4{
+  font-size: 36px;
+}
 .title {
   font-family: 'Birthstone Bounce', cursive;
   color: #0FA3B1;
 }
+
 
 .subtitle {
   font-family: 'Open Sans', sans-serif;
 }
 
 .box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
   background-color: #EDDEA4;
   padding: 2rem;
   border-radius: 6px;
@@ -35,4 +44,13 @@
 .is-grouped-centered {
   display: flex;
   justify-content: center;
+}
+
+.button{
+ text-decoration: none;
+ background-color: #0FA3B1;
+ color: black;
+}
+a.button{
+  margin-left: 3.5px;
 }

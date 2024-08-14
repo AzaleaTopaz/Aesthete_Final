@@ -96,7 +96,7 @@ export default function LoginPage () {
         </div>
   
         <form className="box" onSubmit={handleSubmit}>
-          <h3 className="title is-4">Log in</h3>
+          <h3 className="title is-4">Login</h3>
   
           <div className="field">
             <label className="label" htmlFor="username">Username</label>
@@ -105,7 +105,7 @@ export default function LoginPage () {
                 type="text"
                 id="username"
                 className="input"
-                placeholder="User Name"
+                placeholder="Username"
                 onChange={handleChange}
                 value={formState.username}
               />
@@ -119,7 +119,7 @@ export default function LoginPage () {
                 type="password"
                 id="password"
                 className="input"
-                placeholder="Enter your password"
+                placeholder="Password"
                 onChange={handleChange}
                 value={formState.password}
               />
@@ -133,16 +133,10 @@ export default function LoginPage () {
               <button className="button is-primary" type="submit">Log in</button>
             </div>
           </div>
-  
-          <div className="field is-grouped is-grouped-centered mt-4">
-            <hr className="my-4"/>
-            <p className="control">
-              
-            </p>
             <div className="control">
-              <Link to="/signup" className="button is-link">Sign up</Link>
+              <Link to="/signup" className="button">Sign up</Link>
             </div>
-          </div>
+         
         </form>
       </div>
     );
