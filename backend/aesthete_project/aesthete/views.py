@@ -110,21 +110,9 @@ class ProjectDetail(generics.RetrieveUpdateDestroyAPIView):
     
 
 class CreateProjectView(generics.CreateAPIView):
-    # serializer_class = ProjectSerializer
-    # queryset = Project.objects.all()
-    # permission_classes = [AllowAny]
-
-    # def perform_create(self, serializer):
-    #     user = self.kwargs['pk']
-    #     user = get_object_or_404(User, user=user)
-    #     serializer.save(user=user)
-
-    # def get_serializer_context(self):
-    #     context = super().get_serializer_context()
-    #     context['user'] = self.kwargs['pk']
-    #     return context 
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
+    
 # Review Views
 class ListReviews(generics.ListCreateAPIView):
     queryset = Review.objects.all()
